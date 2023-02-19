@@ -20,7 +20,7 @@ int main(void)
 				{
 					if ((a + b) <= (c + d))
 					{
-					if ((a != c) && (b != d))
+					if (!((a == c) && (b == d)))
 					{
 					putchar((a % 10) + '0');
 					putchar((b % 10) + '0');
