@@ -18,7 +18,9 @@ int main(void)
 			{
 				for (d = 0; d < 10; d++)
 				{
-					if ((a + b) < (c + d))
+					if ((a + b) <= (c + d))
+					{
+					if ((a != c) && (b != d))
 					{
 					putchar((a % 10) + '0');
 					putchar((b % 10) + '0');
@@ -29,6 +31,7 @@ int main(void)
 					{
 					putchar(44);
 					putchar(32);
+					}
 					}
 					}
 					else
