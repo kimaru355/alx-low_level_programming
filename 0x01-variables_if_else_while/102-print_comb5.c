@@ -21,6 +21,13 @@ int main(void)
 					if ((a + b) <= (c + d))
 					{
 					if (!((a == c) && (b == d)))
+					if ((a == d) && (b == c))
+					{
+					if ((a + b) == (c + d))
+					{
+					continue;
+					}
+					}
 					{
 					putchar((a % 10) + '0');
 					putchar((b % 10) + '0');
