@@ -1,40 +1,32 @@
 #include "main.h"
-
 /**
- * cap_string - Capitalizes all words of a string.
- * @str: The string to be capitalized.
- *
- * Return: A pointer to the changed string.
+ * cap_string - capitalizes all words of a string
+ * @s: input string.
+ * Return: the pointer to dest.
  */
-char *cap_string(char *str)
+
+char *cap_string(char *s)
 {
-	int index = 0;
+	int n = 0;
+	int i;
+	int cap_words[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	while (str[index])
+	if (*(s + n) >= 97 && *(s + n) <= 122)
+		*(s + n) = *(s + n) - 32;
+	n++;
+	while (*(s + n) != '\0')
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
-
-		if (str[index - 1] == ' ' ||
-		    str[index - 1] == '\t' ||
-		    str[index - 1] == '\n' ||
-		    str[index - 1] == ',' ||
-		    str[index - 1] == ';' ||
-		    str[index - 1] == '.' ||
-		    str[index - 1] == '!' ||
-		    str[index - 1] == '?' ||
-		    str[index - 1] == '"' ||
-		    str[index - 1] == '(' ||
-		    str[index - 1] == ')' ||
-		    str[index - 1] == '{' ||
-		    str[index - 1] == '}' ||
-		    index == 0)
-			str[index] -= 32;
-
-		index++;
+		for (i = 0; i < 13; i++)
+		{
+			if (*(s + n) == cap_words[i])
+			{
+				if ((*(s + (n + 1)) >= 97) && (*(s + (n + 1)) <= 122))
+					*(s + (n + 1)) = *(s + (n + 1)) - 32;
+				break;
+			}
+		}
+		n++;
 	}
-
-	return (str);
+	return (s);
 }
-
 
