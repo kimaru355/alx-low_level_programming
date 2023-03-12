@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	int res __attribute__ ((unused));
 
 	argc += -1;
-	if (argc > 0)
+	if (argc == 2)
 	{
 		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
 	}
