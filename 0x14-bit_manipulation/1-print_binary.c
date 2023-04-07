@@ -10,6 +10,8 @@ void print_binary(unsigned long int n)
 {
 	int mask, bit, i, decimal;
 
+	if (n == NULL)
+		exit (98);
 	decimal = n;
 	mask = 1 << 31;
 	for (i = 31; i >= 0; i--)
