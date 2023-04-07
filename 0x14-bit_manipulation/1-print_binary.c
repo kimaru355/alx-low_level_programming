@@ -5,28 +5,16 @@
  * @n: integer to print in binary form
  */
 
-
 void print_binary(unsigned long int n)
 {
-	int mask, bit, i, decimal;
-
-	if (n == NULL)
-		exit (98);
-	decimal = n;
-	mask = 1 << 31;
-	for (i = 31; i >= 0; i--)
+	if (n >> 0)
 	{
-		if (decimal & (1 << i))
-		{
-			mask = 1 << i;
-			break;
-		}
+		if (n >> 1)
+			print_binary(n >> 1);
+		_putchar((n & 1) + '0');
 	}
-	for (i = mask; i > 0; i >>= 1)
+	else
 	{
-		bit = (decimal & i) ? 1 : 0;
-		printf("%d", bit);
+		_putchar('0');
 	}
-	if (i < 0)
-		printf("%d", bit);
 }
