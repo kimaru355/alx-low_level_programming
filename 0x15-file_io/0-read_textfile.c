@@ -9,30 +9,24 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char c;
-	ssize_t n;
-	size_t i;
-	FILE *fp;
+	ssize_t n, i;
+	int fp;
+	char *c;
 
 	if (!filename)
 		return (0);
-	fp = fopen(filename, "r");
-	if (fp == NULL)
+	fp = open(filename, O_RDONLY);
+	if (fp == -1)
 		return (0);
 
-	for (i = 0; i < letters; i++)
-	{
-	c = getc(fp);
-	if (c == EOF)
-	{
-		n = i;
-		fclose(fp);
-		return (n);
-	}
-		fseek(fp, i, SEEK_SET);
-		printf("%c", c);
-	}
-	n = i;
-	fclose(fp);
+	c = malloc(sizeof(char) * letters);
+	if (c == NULL)
+		return (0);
+
+	i = read(fp, c, letters);
+	n = write(STDOUT_FILENO, c, i);
+
+	close(fp);
+	free(c);
 	return (n);
 }
